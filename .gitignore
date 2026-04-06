@@ -1,0 +1,22 @@
+# Pastas de compilação (Arquivos que o Java gera sozinho)
+target/
+build/
+bin/
+classes/
+
+# Pastas do NetBeans (Configurações locais da sua máquina)
+nbproject/
+nbproject/private/
+build/
+dist/
+
+# Outras IDEs (Caso você use IntelliJ ou Eclipse no futuro)
+.idea/
+*.iml
+.settings/
+.project/
+.classpath/
+
+# Arquivos de log e temporários
+*.log
+*.tmp
