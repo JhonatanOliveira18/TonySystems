@@ -5,7 +5,9 @@
 ## 🎯 Objetivo do Software
 O **TonySystems** foi idealizado para modernizar o fluxo de trabalho de assistências técnicas especializadas no conserto de televisores. O sistema substitui registros manuais por uma plataforma digital que integra o controle de ordens de serviço, a gestão de peças em estoque e o fechamento financeiro, garantindo maior rastreabilidade e eficiência operacional.
 
+
 ---
+
 
 ## 🛠️ Tecnologias Aplicadas
 O projeto utiliza tecnologias avançadas de persistência e mapeamento, focando em robustez e escalabilidade:
@@ -18,7 +20,28 @@ O projeto utiliza tecnologias avançadas de persistência e mapeamento, focando 
 * **Conectividade:** JDBC (Java Database Connectivity)
 * **Padrão de Arquitetura:** DAO (Data Access Object)
 
+
 ---
+
+
+## 🏗️ Arquitetura do Projeto
+
+O projeto foi estruturado seguindo o padrão DAO (Data Access Object), separando as responsabilidades em camadas para facilitar manutenção e escalabilidade.
+
+```text
+tonysystems/
+├── dao/
+│   └── Operações de acesso ao banco de dados
+├── gui/
+│   └── Interfaces gráficas Swing
+├── model/
+│   └── Entidades JPA / Classes de modelo
+└── util/
+    └── Classes auxiliares
+```
+
+---
+
 
 ## ✨ Funcionalidades do Sistema (Requisitos)
 O sistema foi projetado para atender aos seguintes requisitos funcionais:
@@ -30,10 +53,43 @@ O sistema foi projetado para atender aos seguintes requisitos funcionais:
 * **Módulo Financeiro:** Cálculo automático do valor total da manutenção e registro da forma de pagamento (Pix, Cartão ou Dinheiro).
 * **Histórico de Manutenção:** Registro detalhado de quais materiais foram aplicados em cada televisor.
 
+
+---
+
+
+## 🔄 Fluxo Principal do Sistema
+
+
+1. Cadastro do cliente
+2. Cadastro da televisão
+3. Abertura da ordem de serviço
+4. Adição dos materiais utilizados
+5. Registro do pagamento
+6. Finalização da manutenção
+7. Atualização automática do estoque
+
+
+---
+
+
+## 🧠 Conceitos Aplicados
+
+
+- Programação Orientada a Objetos (POO)
+- DAO Pattern
+- JPA/Hibernate
+- Relacionamentos OneToOne, OneToMany e ManyToMany
+- Collections Framework (HashMap)
+- Persistência de Dados
+- Tratamento de Exceções
+- Maven
+
+
 ---
 
 
 ## 🗄️ Modelo de Banco de Dados
+
 
 O sistema foi modelado utilizando banco de dados relacional MySQL, com relacionamentos entre clientes, televisões, manutenções, materiais e pagamentos.
 
@@ -46,6 +102,7 @@ O sistema foi modelado utilizando banco de dados relacional MySQL, com relaciona
 - Manutenção → Pagamento (1:1)
 - Manutenção → Material (N:N)
 - Destaque para entidade associativa (tb_uso_material) para resolver um relacionamento muitos-para-muitos.
+
 
 ---
 
@@ -64,7 +121,9 @@ O sistema foi modelado utilizando banco de dados relacional MySQL, com relaciona
 
 ![Ordem de Serviço](docs/imagens/os.png)
 
+
 ---
+
 
 ## 📊 Status do Projeto
 🚀 **Em Desenvolvimento**
