@@ -37,7 +37,7 @@ O sistema foi projetado para atender aos seguintes requisitos funcionais:
 
 O sistema foi modelado utilizando banco de dados relacional MySQL, com relacionamentos entre clientes, televisões, manutenções, materiais e pagamentos.
 
-![DER](docs/imagens/db_tonysystems.PNG)
+![DER](docs/imagens/db_tonysystems.png)
 
 ### Principais Relacionamentos
 
