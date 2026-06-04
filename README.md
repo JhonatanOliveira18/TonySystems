@@ -45,11 +45,24 @@ O sistema foi modelado utilizando banco de dados relacional MySQL, com relaciona
 - Televisão → Manutenção (1:N)
 - Manutenção → Pagamento (1:1)
 - Manutenção → Material (N:N)
+- Destaque para entidade associativa (tb_uso_material) para resolver um relacionamento muitos-para-muitos.
 
 ---
 
 
 ## 📸 Imagens do Sistema
+
+### Tela Principal
+
+![Tela Principal](docs/imagens/telainicial.png)
+
+### Cadastro Clientes
+
+![Cadastro de Clientes](docs/imagens/clientescad.png)
+
+### Abertura Ordem de Serviço
+
+![Ordem de Serviço](docs/imagens/os.png)
 
 ---
 
