@@ -49,6 +49,10 @@ O sistema foi modelado utilizando banco de dados relacional MySQL, com relaciona
 ---
 
 
+## 📸 Imagens do Sistema
+
+---
+
 ## 📊 Status do Projeto
 🚀 **Em Desenvolvimento**
 
