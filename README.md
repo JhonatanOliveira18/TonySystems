@@ -32,6 +32,23 @@ O sistema foi projetado para atender aos seguintes requisitos funcionais:
 
 ---
 
+
+## 🗄️ Modelo de Banco de Dados
+
+O sistema foi modelado utilizando banco de dados relacional MySQL, com relacionamentos entre clientes, televisões, manutenções, materiais e pagamentos.
+
+![DER]()
+
+### Principais Relacionamentos
+
+- Cliente → Televisão (1:N)
+- Televisão → Manutenção (1:N)
+- Manutenção → Pagamento (1:1)
+- Manutenção → Material (N:N)
+
+---
+
+
 ## 📊 Status do Projeto
 🚀 **Em Desenvolvimento**
 
