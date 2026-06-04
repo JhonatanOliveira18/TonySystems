@@ -171,9 +171,13 @@ public class TelaListagemClientes extends javax.swing.JInternalFrame {
 
         int linhaSelecionada = tblClientes.getSelectedRow();
 
-        if (linhaSelecionada >= 0) {
-            // 1. Pegar o ID da coluna 0 (ajuste se for outra coluna)
-            int id = Integer.parseInt(tblClientes.getValueAt(linhaSelecionada, 0).toString());
+        if (linhaSelecionada == -1) {
+            JOptionPane.showMessageDialog(this,
+                    "Selecione um registro para excluir.");
+            return;
+        }
+            // 1. Pegar o ID da coluna 0
+            int id = (Integer) tblClientes.getValueAt(linhaSelecionada, 0);
 
             int resposta = JOptionPane.showConfirmDialog(this,
                     "Deseja realmente remover o cadastro deste cliente?",
@@ -182,7 +186,9 @@ public class TelaListagemClientes extends javax.swing.JInternalFrame {
             if (resposta == JOptionPane.YES_OPTION) {
                 try {
                     ClienteDAO dao = new ClienteDAO();
-                    // 2. Passar o ID e não a LINHA
+                    
+                    JOptionPane.showMessageDialog(this, "ID: " + id);
+                    
                     dao.excluir(id);
 
                     // 3. Atualizar a tabela para o cliente sumir da tela
@@ -193,7 +199,7 @@ public class TelaListagemClientes extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(this, "Erro ao excluir: " + e.getMessage());
                 }
             }
-        }
+        
 
     }//GEN-LAST:event_btnExcluirActionPerformed
 

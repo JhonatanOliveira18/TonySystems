@@ -1,5 +1,6 @@
 package tonysystems.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Televisao {
     @JoinColumn(name = "cliente_id",nullable = false)
     private Cliente cliente;
     
-    @OneToMany(mappedBy = "televisao")
+    @OneToMany(mappedBy = "televisao", cascade = CascadeType.REMOVE)
     private List<Manutencao> manutencoes;
     
     

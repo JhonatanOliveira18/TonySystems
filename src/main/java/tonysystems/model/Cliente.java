@@ -1,5 +1,6 @@
 package tonysystems.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -43,7 +44,7 @@ public class Cliente {
     @Column(nullable = false, unique = true, length = 20)
     private String cpf;
     
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.REMOVE)
     private List<Televisao> tvs;
     
     //Cosntrutor vazio

@@ -7,18 +7,17 @@ import tonysystems.dao.MaterialDAO;
 import tonysystems.model.Material;
 
 public class TelaListagemMateriais extends javax.swing.JInternalFrame {
-
+    
     public TelaListagemMateriais() {
         initComponents();
     }
-    
-    // ---------> MÉTODOS <----------
 
+    // ---------> MÉTODOS <----------
     public void preencherTabela(List<Material> lista) {
         
         DefaultTableModel model = (DefaultTableModel) tblMateriais.getModel();
         model.setRowCount(0);
-
+        
         for (Material m : lista) {
             model.addRow(new Object[]{
                 m.getId(),
@@ -30,6 +29,7 @@ public class TelaListagemMateriais extends javax.swing.JInternalFrame {
             });
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -104,6 +104,7 @@ public class TelaListagemMateriais extends javax.swing.JInternalFrame {
         );
 
         jButton1.setText("Excluir Material");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,28 +128,58 @@ public class TelaListagemMateriais extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     // ---------> AÇÕES <-----------
-    
-    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-         
-        String nomeBusca = txtCategoria.getText();
 
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        
+        String nomeBusca = txtCategoria.getText();
+        
         if (nomeBusca == null || nomeBusca.trim().isEmpty()) {
             return;
         }
-
+        
         try {
             MaterialDAO dao = new MaterialDAO();
-
+            
             List<Material> lista = dao.listarPorCategoria(nomeBusca);
-
+            
             preencherTabela(lista);
-
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ERRO AO BUSCAR CATEGORIA. " + e.getMessage());
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        int linhaSelecionada = tblMateriais.getSelectedRow();
+        
+        if (linhaSelecionada == -1) {
+            JOptionPane.showMessageDialog(this,
+                    "Selecione um registro para excluir.");
+            return;
+        }
+        int id = (Integer) tblMateriais.getValueAt(linhaSelecionada, 0);        
+        
+        int opcao = JOptionPane.showConfirmDialog(
+                this,
+                "Deseja realmente excluir este registro?",
+                "Confirmação",
+                JOptionPane.YES_NO_OPTION);
+        
+        if (opcao == JOptionPane.YES_OPTION) {
+            
+            MaterialDAO materialDao = new MaterialDAO();            
+            
+            materialDao.excluir(id);
+            
+            JOptionPane.showMessageDialog(this,
+                    "Registro excluído com sucesso!");
+            
+            preencherTabela(materialDao.listarTodos()); 
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
